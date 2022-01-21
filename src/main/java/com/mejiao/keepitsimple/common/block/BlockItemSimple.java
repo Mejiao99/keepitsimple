@@ -21,6 +21,10 @@ public class BlockItemSimple {
     public static final RegistryObject<Block> SIMPLE_GENERATOR = register("simple_generator", () ->
             new BlockEnergyGeneratorSimple(AbstractBlock.Properties.of(Material.STONE)));
 
+    public static final RegistryObject<Block> SIMPLE_BLOCK = register("simple_block", () ->
+            new SimpleBlock(AbstractBlock.Properties.of(Material.METAL))
+    );
+
     public static void register(IEventBus iEventBus) {
         BLOCKS.register(iEventBus);
     }

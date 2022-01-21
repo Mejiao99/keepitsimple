@@ -14,6 +14,10 @@ public class TileSimpleEntities {
     public static DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES,
             KeepItSimple.MOD_ID);
 
+    public static final RegistryObject<TileEntityType<TileSimple>> SIMPLE_TILE =
+            TILE_ENTITIES.register("tilesimple", () -> TileEntityType.Builder.of(
+            TileSimple::new, BlockItemSimple.SIMPLE_BLOCK.get()).build(null));
+
     public static final RegistryObject<TileEntityType<TileEnergySimple>> SIMPLE_ENERGY_TILE =
             TILE_ENTITIES.register("simpleenergytile", () -> TileEntityType.Builder.of(
                     TileEnergySimple::new, BlockItemSimple.SIMPLE_GENERATOR.get()).build(null));

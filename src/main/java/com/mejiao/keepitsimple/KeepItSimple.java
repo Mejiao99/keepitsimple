@@ -1,8 +1,12 @@
 package com.mejiao.keepitsimple;
 
+import com.mejiao.keepitsimple.common.screen.SimpleScreenMod;
 import com.mejiao.keepitsimple.common.block.BlockItemSimple;
+import com.mejiao.keepitsimple.common.inventory.containers.ContainerM;
 import com.mejiao.keepitsimple.common.tile.TileSimpleEntities;
+import com.mejiao.keepitsimple.item.ItemSimple;
 import net.minecraft.block.Block;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -30,10 +34,10 @@ public class KeepItSimple {
 
     public KeepItSimple() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        //ItemSimple.register(eventBus);
+        ItemSimple.register(eventBus);
         BlockItemSimple.register(eventBus);
         TileSimpleEntities.register(eventBus);
-        //ContainerM.register(eventBus);
+        ContainerM.register(eventBus);
 
 
         // Register ourselves for server and other game events we are interested in
@@ -49,6 +53,9 @@ public class KeepItSimple {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+
+
+            ScreenManager.register(ContainerM.SIMPLE_BLOCK_CONTAINER.get(), SimpleScreenMod::new);
             // do something that can only be done on the client
             // LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
         });

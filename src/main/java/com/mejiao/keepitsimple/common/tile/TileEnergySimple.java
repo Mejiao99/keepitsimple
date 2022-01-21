@@ -1,7 +1,6 @@
 package com.mejiao.keepitsimple.common.tile;
 
-
-import com.mejiao.keepitsimple.common.integration.energy.storage.SimpleEnergyStorage;
+import com.mejiao.keepitsimple.common.integration.energy.forgeenergy.SimpleEnergyStorage;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
@@ -50,9 +49,9 @@ public class TileEnergySimple extends TileEntity implements ITickableTileEntity 
         }
 
 
-        //System.out.println("getEnergyStored: " + storage.getEnergyStored());
-        // System.out.println("getMaxEnergyStored: " + storage.getMaxEnergyStored());
-        //System.out.println("TileEnergySimple.tick");
+        System.out.println("getEnergyStored: " + storage.getEnergyStored());
+        System.out.println("getMaxEnergyStored: " + storage.getMaxEnergyStored());
+        System.out.println("TileEnergySimple.tick");
 
     }
 
