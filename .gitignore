@@ -1,0 +1,41 @@
+build
+output
+.idea
+*.iml
+*.ipr
+*.iws
+out
+/run
+/.gradle
+/gradle
+*.classpath
+*.project
+.settings
+/eclipse
+*.txt
+*.launch
+/bin
+/logs
+/src/generated
+/src/test
+
+
+
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+/src/main/java/com/mejiao/keepitsimple/common/registration/
+/src/main/java/com/mejiao/keepitsimple/common/inventory/containers/
+/src/main/java/com/mejiao/keepitsimple/common/registries/
+/src/main/java/com/mejiao/keepitsimple/common/screen/
+/src/main/java/com/mejiao/keepitsimple/common/tile/simple/
+/src/main/resources/assets/textures/gui/
