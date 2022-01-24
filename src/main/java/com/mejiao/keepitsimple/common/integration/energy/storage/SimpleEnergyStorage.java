@@ -45,14 +45,14 @@ public class SimpleEnergyStorage extends EnergyStorage {
         return super.canReceive();
     }
 
-    void load(CompoundNBT compoundNBT) {
+    public void load(CompoundNBT compoundNBT) {
         this.energy = compoundNBT.getInt("Energy");
         this.capacity = compoundNBT.getInt("Capacity");
         this.maxReceive = compoundNBT.getInt("MaxReceive");
         this.maxExtract = compoundNBT.getInt("maxExtract");
     }
 
-    void save(CompoundNBT compoundNBT) {
+    public void save(CompoundNBT compoundNBT) {
         compoundNBT.putInt("Energy", this.energy);
         compoundNBT.putInt("Capacity", this.capacity);
         compoundNBT.putInt("MaxReceive", this.maxReceive);
