@@ -13,7 +13,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraftforge.energy.IEnergyStorage;
@@ -21,7 +20,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public class WireBlock extends SixWayBlock  {
+public class WireBlock extends SixWayBlock {
     public static final EnumProperty<ConnectionType> NORTH = EnumProperty.create("north", ConnectionType.class);
     public static final EnumProperty<ConnectionType> EAST = EnumProperty.create("east", ConnectionType.class);
     public static final EnumProperty<ConnectionType> SOUTH = EnumProperty.create("south", ConnectionType.class);
@@ -59,25 +58,6 @@ public class WireBlock extends SixWayBlock  {
         return new WireTileEntity();
     }
 
-    @Nullable
-    private static Direction getClickedConnection(Vector3d relative) {
-        if (relative.x < 0.25)
-            return Direction.WEST;
-        if (relative.x > 0.75)
-            return Direction.EAST;
-        if (relative.y < 0.25)
-            return Direction.DOWN;
-        if (relative.y > 0.75)
-            return Direction.UP;
-        if (relative.z < 0.25)
-            return Direction.NORTH;
-        if (relative.z > 0.75)
-            return Direction.SOUTH;
-        return null;
-    }
-
-
-
     private static <T> T getAdjacentValue(Iterable<T> p_195959_0_, @Nullable T p_195959_1_) {
         return Util.findNextInIterable(p_195959_0_, p_195959_1_);
     }
@@ -109,6 +89,9 @@ public class WireBlock extends SixWayBlock  {
         } else if (tileEntity != null) {
             IEnergyStorage energy = EnergyUtils.getEnergyFromSideOrNull(tileEntity, side.getOpposite());
             if (energy != null) {
+                System.out.println("energy = " + energy);
+                System.out.println("canExtract = " + energy.canExtract());
+                System.out.println("canReceive = " + energy.canReceive());
                 if (energy.canExtract()) {
                     return current == ConnectionType.NONE ? ConnectionType.BOTH : current;
                 } else if (energy.canReceive()) {
@@ -134,7 +117,7 @@ public class WireBlock extends SixWayBlock  {
     protected int getAABBIndex(BlockState state) {
         int i = 0;
 
-        for(int j = 0; j < Direction.values().length; ++j) {
+        for (int j = 0; j < Direction.values().length; ++j) {
             if (state.getValue(FACING_TO_PROPERTY_MAP.get(Direction.values()[j])) != ConnectionType.NONE) {
                 i |= 1 << j;
             }
