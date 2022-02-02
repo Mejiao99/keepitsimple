@@ -110,9 +110,9 @@ public class WireBlock extends SixWayBlock  {
             IEnergyStorage energy = EnergyUtils.getEnergyFromSideOrNull(tileEntity, side.getOpposite());
             if (energy != null) {
                 if (energy.canExtract()) {
-                    return current == ConnectionType.NONE ? ConnectionType.IN : current;
+                    return current == ConnectionType.NONE ? ConnectionType.BOTH : current;
                 } else if (energy.canReceive()) {
-                    return current == ConnectionType.NONE ? ConnectionType.OUT : current;
+                    return current == ConnectionType.NONE ? ConnectionType.BOTH : current;
                 }
             }
         }

@@ -6,9 +6,8 @@ import java.util.Locale;
 
 public enum ConnectionType implements IStringSerializable {
     NONE,
-    IN,
-    OUT,
     BOTH;
+
 
     @Override
     public String getSerializedName() {
@@ -16,10 +15,10 @@ public enum ConnectionType implements IStringSerializable {
     }
 
     public boolean canReceive() {
-        return this == IN || this == BOTH;
+        return this == BOTH;
     }
 
     public boolean canExtract() {
-        return this == OUT || this == BOTH;
+        return this == BOTH;
     }
 }
