@@ -57,11 +57,7 @@ public class WireBlock extends SixWayBlock {
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return new WireTileEntity();
     }
-
-    private static <T> T getAdjacentValue(Iterable<T> p_195959_0_, @Nullable T p_195959_1_) {
-        return Util.findNextInIterable(p_195959_0_, p_195959_1_);
-    }
-
+    
     @Override
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(NORTH, EAST, SOUTH, WEST, UP, DOWN);
