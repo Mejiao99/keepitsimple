@@ -8,7 +8,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.SixWayBlock;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.EnumProperty;
-import net.minecraft.state.Property;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
@@ -77,13 +76,7 @@ public class WireBlock extends SixWayBlock  {
         return null;
     }
 
-    @SuppressWarnings("unchecked")
-    private static <T extends Comparable<T>> BlockState cycleProperty(BlockState state, Property<T> propertyIn) {
-        T value = getAdjacentValue(propertyIn.getPossibleValues(), state.getValue(propertyIn));
-        if (value == ConnectionType.NONE)
-            value = (T) ConnectionType.IN;
-        return state.setValue(propertyIn, value);
-    }
+
 
     private static <T> T getAdjacentValue(Iterable<T> p_195959_0_, @Nullable T p_195959_1_) {
         return Util.findNextInIterable(p_195959_0_, p_195959_1_);
