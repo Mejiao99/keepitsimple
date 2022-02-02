@@ -1,6 +1,7 @@
 package com.mejiao.keepitsimple.common.block;
 
 import com.mejiao.keepitsimple.KeepItSimple;
+import com.mejiao.keepitsimple.common.block.wire.WireBlock;
 import com.mejiao.keepitsimple.item.ItemSimple;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -24,6 +25,9 @@ public class BlockItemSimple {
     public static final RegistryObject<Block> SIMPLE_BLOCK = register("simple_block", () ->
             new SimpleBlock(AbstractBlock.Properties.of(Material.METAL))
     );
+
+    public static final RegistryObject<WireBlock> WIRE = register("wire", () ->
+            new WireBlock(Block.Properties.of(Material.DECORATION).strength(1, 5)));
 
     public static void register(IEventBus iEventBus) {
         BLOCKS.register(iEventBus);
