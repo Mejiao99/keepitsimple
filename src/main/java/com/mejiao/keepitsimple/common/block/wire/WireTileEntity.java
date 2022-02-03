@@ -24,14 +24,6 @@ public class WireTileEntity extends TileEntity {
         this(TileSimpleEntities.Wire_Tile_Entity.get());
     }
 
-
-    public String getWireNetworkData() {
-        if (level == null) return "world is null";
-
-        WireNetwork net = WireNetworkManager.get(level, worldPosition);
-        return net != null ? net.toString() : "null";
-    }
-
     @Override
     public void load(BlockState state, CompoundNBT compound) {
         this.energyStored = compound.getInt("EnergyStored");
