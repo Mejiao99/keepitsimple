@@ -2,6 +2,7 @@ package com.mejiao.keepitsimple.common.tile;
 
 import com.mejiao.keepitsimple.KeepItSimple;
 import com.mejiao.keepitsimple.common.block.BlockItemSimple;
+import com.mejiao.keepitsimple.common.block.generator.GeneratorTileEntity;
 import com.mejiao.keepitsimple.common.block.wire.WireTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,6 +23,10 @@ public class TileSimpleEntities {
     public static final RegistryObject<TileEntityType<TileEnergySimple>> SIMPLE_ENERGY_TILE =
             TILE_ENTITIES.register("simpleenergytile", () -> TileEntityType.Builder.of(
                     TileEnergySimple::new, BlockItemSimple.SIMPLE_GENERATOR.get()).build(null));
+
+    public static final RegistryObject<TileEntityType<GeneratorTileEntity>> GENERATOR_ENTITY =
+            TILE_ENTITIES.register("generator_entity", () -> TileEntityType.Builder.of(
+                    GeneratorTileEntity::new, BlockItemSimple.BLOCK_GENERATOR.get()).build(null));
 
     public static final RegistryObject<TileEntityType<WireTileEntity>> Wire_Tile_Entity =
             TILE_ENTITIES.register("wiretileentity", () -> TileEntityType.Builder.of(

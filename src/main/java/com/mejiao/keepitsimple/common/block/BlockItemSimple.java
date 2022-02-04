@@ -1,6 +1,7 @@
 package com.mejiao.keepitsimple.common.block;
 
 import com.mejiao.keepitsimple.KeepItSimple;
+import com.mejiao.keepitsimple.common.block.generator.GeneratorBlock;
 import com.mejiao.keepitsimple.common.block.wire.WireBlock;
 import com.mejiao.keepitsimple.item.ItemSimple;
 import net.minecraft.block.AbstractBlock;
@@ -24,6 +25,9 @@ public class BlockItemSimple {
 
     public static final RegistryObject<Block> SIMPLE_BLOCK = register("simple_block", () ->
             new SimpleBlock(AbstractBlock.Properties.of(Material.METAL))
+    );
+    public static final RegistryObject<Block> BLOCK_GENERATOR = register("generator_block", () ->
+            new GeneratorBlock(AbstractBlock.Properties.of(Material.METAL))
     );
 
     public static final RegistryObject<WireBlock> WIRE = register("wire", () ->
